@@ -106,8 +106,8 @@ if st.button("Predict Price"):
 # ---------- CLUSTER PREDICTION ----------
 
 if st.button("Predict Cluster"):
-        cluster_scaled = scaler.transform(features)
-        cluster = kmeans.predict(cluster_scaled)[0]
+    cluster_scaled = scaler.transform(features)
+    cluster = kmeans.predict(cluster_scaled)[0]
 
     if cluster == 0:
         name = "Affordable Small Diamonds"
