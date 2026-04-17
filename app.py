@@ -64,26 +64,26 @@ features = np.array([[carat, volume, cut_val, color_val, clarity_val, dimension_
 # ---------- PRICE PREDICTION ----------
 
 if st.button("Predict Price"):
-prediction = model.predict(features)
+    prediction = model.predict(features)
 
-try:
-    price = np.expm1(prediction[0])  # if log transform used
-except:
-    price = prediction[0]
+    try:
+        price = np.expm1(prediction[0])
+    except:
+        price = prediction[0]
 
-st.success(f"Predicted Price: Rs {price:,.2f}")
+    st.success(f"Predicted Price: Rs {price:,.2f}")
 # ---------- CLUSTER PREDICTION ----------
 
 if st.button("Predict Cluster"):
-cluster_features = np.array([[carat, volume, cut_val, color_val, clarity_val, 0]])
-cluster_scaled = scaler.transform(cluster_features)
-cluster = kmeans.predict(cluster_scaled)[0]
+    cluster_features = np.array([[carat, volume, cut_val, color_val, clarity_val, 0]])
+    cluster_scaled = scaler.transform(cluster_features)
+    cluster = kmeans.predict(cluster_scaled)[0]
 
-if cluster == 0:
-    name = "Affordable Small Diamonds"
-elif cluster == 1:
-    name = "Mid-range Balanced Diamonds"
-else:
-    name = "Premium Heavy Diamonds"
+    if cluster == 0:
+        name = "Affordable Small Diamonds"
+    elif cluster == 1:
+        name = "Mid-range Balanced Diamonds"
+    else:
+        name = "Premium Heavy Diamonds"
 
-st.success(f"Cluster: {cluster} - {name}")
+    st.success(f"Cluster: {cluster} - {name}")
