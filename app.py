@@ -9,7 +9,6 @@ st.title("💎 Diamond Price Prediction & Market Segmentation")
 # ---------- DOWNLOAD MODELS FROM GOOGLE DRIVE ----------
 
 @st.cache_resource
-def load_models():
 def download_file(file_id, output):
     if not os.path.exists(output):
         url = f"https://drive.google.com/uc?id={file_id}"
