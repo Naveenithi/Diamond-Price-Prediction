@@ -109,11 +109,11 @@ if st.button("Predict Cluster"):
     cluster_scaled = scaler.transform(features)
     cluster = kmeans.predict(cluster_scaled)[0]
 
-if cluster == 0:
-    name = "Affordable Small Diamonds"
-elif cluster == 1:
-    name = "Mid-range Balanced Diamonds"
-else:
-    name = "Premium Heavy Diamonds"
+    if cluster == 0:
+        name = "Affordable Small Diamonds"
+    elif cluster == 1:
+        name = "Mid-range Balanced Diamonds"
+    else:
+        name = "Premium Heavy Diamonds"
 
-st.success(f"📊 Cluster: {cluster} - {name}")
+    st.success(f"Cluster: {cluster} - {name}")
