@@ -96,12 +96,13 @@ carat_category
 if st.button("Predict Price"):
     prediction = model.predict(features)
 
-try:
-    price = np.expm1(prediction[0])
-except:
-    price = prediction[0]
+    # Handle different output formats safely
+    if isinstance(prediction, (list, np.ndarray)):
+        price = prediction[0]
+    else:
+        price = prediction
 
-st.success(f"💰 Predicted Price: ₹ {price:,.2f}")
+    st.success(f"Predicted Price: ₹ {price:,.2f}")
 # ---------- CLUSTER PREDICTION ----------
 
 if st.button("Predict Cluster"):
