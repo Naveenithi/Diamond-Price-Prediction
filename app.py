@@ -63,11 +63,11 @@ volume = x * y * z
 dimension_ratio = (x + y) / (2 * z)
 
 if carat < 0.5:
-carat_category = 0
+   carat_category = 0
 elif carat <= 1.5:
-carat_category = 1
+   carat_category = 1
 else:
-carat_category = 2
+   carat_category = 2
 
 # Placeholder (since price unknown during prediction)
 
