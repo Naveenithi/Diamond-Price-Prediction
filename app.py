@@ -59,7 +59,21 @@ dimension_ratio = (x + y) / (2 * z)
 
 # Ensure feature order matches training
 
-features = np.array([[carat, volume, cut_val, color_val, clarity_val, dimension_ratio]])
+features = np.array([[
+    carat,
+    cut_val,
+    color_val,
+    clarity_val,
+    depth,
+    table,
+    x,
+    y,
+    z,
+    volume,
+    price_per_carat,
+    dimension_ratio,
+    carat_category
+]])
 
 # ---------- PRICE PREDICTION ----------
 
@@ -75,7 +89,7 @@ if st.button("Predict Price"):
 # ---------- CLUSTER PREDICTION ----------
 
 if st.button("Predict Cluster"):
-    cluster_features = np.array([[carat, volume, cut_val, color_val, clarity_val, 0]])
+    cluster_features = features.copy()
     cluster_scaled = scaler.transform(cluster_features)
     cluster = kmeans.predict(cluster_scaled)[0]
 
@@ -87,3 +101,15 @@ if st.button("Predict Cluster"):
         name = "Premium Heavy Diamonds"
 
     st.success(f"Cluster: {cluster} - {name}")
+
+depth = st.number_input("Depth (%)", min_value=0.0, value=60.0)
+table = st.number_input("Table (%)", min_value=0.0, value=55.0)
+
+if carat < 0.5:
+    carat_category = 0
+elif carat <= 1.5:
+    carat_category = 1
+else:
+    carat_category = 2
+
+price_per_carat = 0  # placeholder (or use average from dataset)
