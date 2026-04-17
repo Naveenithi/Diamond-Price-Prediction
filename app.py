@@ -106,7 +106,29 @@ if st.button("Predict Price"):
 # ---------- CLUSTER PREDICTION ----------
 
 if st.button("Predict Cluster"):
-    cluster = kmeans.predict(features)[0]
+
+    # First predict price
+    prediction = model.predict(features)
+
+    if isinstance(prediction, (list, np.ndarray)):
+        price = prediction[0]
+    else:
+        price = prediction
+
+    # Compute price_per_carat
+    price_per_carat = price / carat if carat != 0 else 0
+
+    # Create cluster features (EXACT ORDER)
+    cluster_features = np.array([[
+        carat,
+        volume,
+        cut_val,
+        color_val,
+        clarity_val,
+        price_per_carat
+    ]])
+
+    cluster = kmeans.predict(cluster_features)[0]
 
     if cluster == 0:
         name = "Affordable Small Diamonds"
