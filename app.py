@@ -65,7 +65,7 @@ clarity_val = clarity_map[clarity]
 volume = x * y * z
 dimension_ratio = (x + y) / (2 * z)
 
-⚠️ Ensure this matches your training features EXACTLY
+# Ensure this matches your training features EXACTLY
 
 features = np.array([[carat, volume, cut_val, color_val, clarity_val, dimension_ratio]])
 
