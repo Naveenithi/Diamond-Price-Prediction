@@ -11,9 +11,9 @@ st.title("💎 Diamond Price Prediction & Market Segmentation")
 @st.cache_resource
 def load_models():
 def download_file(file_id, output):
-if not os.path.exists(output):
-url = f"https://drive.google.com/uc?id={file_id}"
-gdown.download(url, output, quiet=False)
+    if not os.path.exists(output):
+        url = f"https://drive.google.com/uc?id={file_id}"
+        gdown.download(url, output, quiet=False)
 
 # Your Google Drive File IDs
 
