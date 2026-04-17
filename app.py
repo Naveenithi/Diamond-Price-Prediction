@@ -94,7 +94,7 @@ carat_category
 # ---------- PRICE PREDICTION ----------
 
 if st.button("Predict Price"):
-prediction = model.predict(features)
+    prediction = model.predict(features)
 
 try:
     price = np.expm1(prediction[0])
@@ -105,8 +105,8 @@ st.success(f"💰 Predicted Price: ₹ {price:,.2f}")
 # ---------- CLUSTER PREDICTION ----------
 
 if st.button("Predict Cluster"):
-cluster_scaled = scaler.transform(features)
-cluster = kmeans.predict(cluster_scaled)[0]
+    cluster_scaled = scaler.transform(features)
+    cluster = kmeans.predict(cluster_scaled)[0]
 
 if cluster == 0:
     name = "Affordable Small Diamonds"
