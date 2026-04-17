@@ -6,7 +6,7 @@ import os
 
 st.title("💎 Diamond Price Prediction & Market Segmentation")
 
----------- DOWNLOAD MODELS FROM GOOGLE DRIVE ----------
+# ---------- DOWNLOAD MODELS FROM GOOGLE DRIVE ----------
 
 @st.cache_resource
 def load_models():
@@ -15,19 +15,19 @@ if not os.path.exists(output):
 url = f"https://drive.google.com/uc?id={file_id}"
 gdown.download(url, output, quiet=False)
 
-Your Google Drive File IDs
+# Your Google Drive File IDs
 
 MODEL_ID = "10Cn-GKZ5aj8L_Nh1NEzgWWwibI8Cbosb"
 KMEANS_ID = "1xXcPpxAPg8ojhR6pHtqTXRUO0ZhxU3BP"
 SCALER_ID = "1Mu7d9ZveR7IZpDYvhudiNZ-Ccttsp__u"
 
-Download files (only once)
+# Download files (only once)
 
 download_file(MODEL_ID, "best_model.pkl")
 download_file(KMEANS_ID, "kmeans_model.pkl")
 download_file(SCALER_ID, "scaler.pkl")
 
----------- LOAD MODELS ----------
+# ---------- LOAD MODELS ----------
 
 model = pickle.load(open('best_model.pkl', 'rb'))
 kmeans = pickle.load(open('kmeans_model.pkl', 'rb'))
@@ -37,7 +37,7 @@ return model, kmeans, scaler
 
 model, kmeans, scaler = load_models()
 
----------- INPUT SECTION ----------
+# ---------- INPUT SECTION ----------
 
 st.header("Enter Diamond Details")
 
@@ -50,7 +50,7 @@ cut = st.selectbox("Cut", ["Fair", "Good", "Very Good", "Premium", "Ideal"])
 color = st.selectbox("Color", ["D","E","F","G","H","I","J"])
 clarity = st.selectbox("Clarity", ["IF","VVS1","VVS2","VS1","VS2","SI1","SI2","I1"])
 
----------- ENCODING ----------
+# ---------- ENCODING ----------
 
 cut_map = {'Fair':1, 'Good':2, 'Very Good':3, 'Premium':4, 'Ideal':5}
 color_map = {'J':1, 'I':2, 'H':3, 'G':4, 'F':5, 'E':6, 'D':7}
@@ -60,7 +60,7 @@ cut_val = cut_map[cut]
 color_val = color_map[color]
 clarity_val = clarity_map[clarity]
 
----------- FEATURE ENGINEERING ----------
+# ---------- FEATURE ENGINEERING ----------
 
 volume = x * y * z
 dimension_ratio = (x + y) / (2 * z)
@@ -69,14 +69,14 @@ dimension_ratio = (x + y) / (2 * z)
 
 features = np.array([[carat, volume, cut_val, color_val, clarity_val, dimension_ratio]])
 
----------- PRICE PREDICTION ----------
+# ---------- PRICE PREDICTION ----------
 
 if st.button("Predict Price"):
 prediction = model.predict(features)
 price = np.expm1(prediction[0]) # remove if no log used
 st.success(f"💰 Predicted Price: ₹ {price:,.2f}")
 
----------- CLUSTER PREDICTION ----------
+# ---------- CLUSTER PREDICTION ----------
 
 if st.button("Predict Cluster"):
 cluster_features = np.array([[carat, volume, cut_val, color_val, clarity_val, 0]])
