@@ -10,25 +10,24 @@ st.title("💎 Diamond Price Prediction & Market Segmentation")
 
 @st.cache_resource
 def load_models():
+    def download_file(file_id, output):
+        if not os.path.exists(output):
+            url = f"https://drive.google.com/uc?id={file_id}"
+            gdown.download(url, output, quiet=False)
 
-def download_file(file_id, output):
-    if not os.path.exists(output):
-        url = f"https://drive.google.com/uc?id={file_id}"
-        gdown.download(url, output, quiet=False)
+    MODEL_ID = "10Cn-GKZ5aj8L_Nh1NEzgWWwibI8Cbosb"
+    KMEANS_ID = "1xXcPpxAPg8ojhR6pHtqTXRUO0ZhxU3BP"
+    SCALER_ID = "1Mu7d9ZveR7IZpDYvhudiNZ-Ccttsp__u"
 
-MODEL_ID = "10Cn-GKZ5aj8L_Nh1NEzgWWwibI8Cbosb"
-KMEANS_ID = "1xXcPpxAPg8ojhR6pHtqTXRUO0ZhxU3BP"
-SCALER_ID = "1Mu7d9ZveR7IZpDYvhudiNZ-Ccttsp__u"
+    download_file(MODEL_ID, "best_model.pkl")
+    download_file(KMEANS_ID, "kmeans_model.pkl")
+    download_file(SCALER_ID, "scaler.pkl")
 
-download_file(MODEL_ID, "best_model.pkl")
-download_file(KMEANS_ID, "kmeans_model.pkl")
-download_file(SCALER_ID, "scaler.pkl")
+    model = pickle.load(open("best_model.pkl", "rb"))
+    kmeans = pickle.load(open("kmeans_model.pkl", "rb"))
+    scaler = pickle.load(open("scaler.pkl", "rb"))
 
-model = pickle.load(open("best_model.pkl", "rb"))
-kmeans = pickle.load(open("kmeans_model.pkl", "rb"))
-scaler = pickle.load(open("scaler.pkl", "rb"))
-
-return model, kmeans, scaler
+    return model, kmeans, scaler
 
 model, kmeans, scaler = load_models()
 
