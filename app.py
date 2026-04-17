@@ -8,6 +8,8 @@ st.title("💎 Diamond Price Prediction & Market Segmentation")
 
 ---------- DOWNLOAD MODELS FROM GOOGLE DRIVE ----------
 
+@st.cache_resource
+def load_models():
 def download_file(file_id, output):
 if not os.path.exists(output):
 url = f"https://drive.google.com/uc?id={file_id}"
@@ -30,6 +32,10 @@ download_file(SCALER_ID, "scaler.pkl")
 model = pickle.load(open('best_model.pkl', 'rb'))
 kmeans = pickle.load(open('kmeans_model.pkl', 'rb'))
 scaler = pickle.load(open('scaler.pkl', 'rb'))
+
+return model, kmeans, scaler
+
+model, kmeans, scaler = load_models()
 
 ---------- INPUT SECTION ----------
 
