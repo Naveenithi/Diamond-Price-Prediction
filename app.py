@@ -6,7 +6,7 @@ import os
 
 st.title("Diamond Price Prediction & Market Segmentation")
 
----------- LOAD MODELS WITH CACHING ----------
+# ---------- LOAD MODELS WITH CACHING ----------
 
 @st.cache_resource
 def load_models():
@@ -32,7 +32,7 @@ return model, kmeans, scaler
 
 model, kmeans, scaler = load_models()
 
----------- INPUT SECTION ----------
+# ---------- INPUT SECTION ----------
 
 st.header("Enter Diamond Details")
 
@@ -45,7 +45,7 @@ cut = st.selectbox("Cut", ["Fair", "Good", "Very Good", "Premium", "Ideal"])
 color = st.selectbox("Color", ["D", "E", "F", "G", "H", "I", "J"])
 clarity = st.selectbox("Clarity", ["IF", "VVS1", "VVS2", "VS1", "VS2", "SI1", "SI2", "I1"])
 
----------- ENCODING ----------
+# ---------- ENCODING ----------
 
 cut_map = {'Fair': 1, 'Good': 2, 'Very Good': 3, 'Premium': 4, 'Ideal': 5}
 color_map = {'J': 1, 'I': 2, 'H': 3, 'G': 4, 'F': 5, 'E': 6, 'D': 7}
@@ -55,7 +55,7 @@ cut_val = cut_map[cut]
 color_val = color_map[color]
 clarity_val = clarity_map[clarity]
 
----------- FEATURE ENGINEERING ----------
+# ---------- FEATURE ENGINEERING ----------
 
 volume = x * y * z
 dimension_ratio = (x + y) / (2 * z)
@@ -64,7 +64,7 @@ Ensure feature order matches training
 
 features = np.array([[carat, volume, cut_val, color_val, clarity_val, dimension_ratio]])
 
----------- PRICE PREDICTION ----------
+# ---------- PRICE PREDICTION ----------
 
 if st.button("Predict Price"):
 prediction = model.predict(features)
@@ -75,7 +75,7 @@ except:
     price = prediction[0]
 
 st.success(f"Predicted Price: Rs {price:,.2f}")
----------- CLUSTER PREDICTION ----------
+# ---------- CLUSTER PREDICTION ----------
 
 if st.button("Predict Cluster"):
 cluster_features = np.array([[carat, volume, cut_val, color_val, clarity_val, 0]])
