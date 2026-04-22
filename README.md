@@ -52,7 +52,7 @@ Treated skewness using log transformations
 
 Encoded categorical variables using ordinal encoding
 
-⚙️ Feature Engineering
+**⚙️ Feature Engineering**
 
 Converted price from USD → INR (₹93 assumed rate)
 
@@ -64,9 +64,9 @@ dimension_ratio
 
 carat_category
 
-🤖 Model Building
+**🤖 Model Building**
 
-🔹 Regression Models:
+**🔹 Regression Models:**
 
 Linear Regression
 
@@ -76,7 +76,7 @@ Random Forest (Best Model)
 
 KNN
 
-📊 Evaluation Metrics:
+**📊 Evaluation Metrics:**
 
 MAE
 
@@ -86,13 +86,13 @@ RMSE
 
 R² Score
 
-🧠 Clustering (Market Segmentation)
+**🧠 Clustering (Market Segmentation)**
 
 Algorithm: K-Means Clustering
 
 Optimal clusters selected using Elbow Method
 
-Cluster Interpretation:
+**Cluster Interpretation:**
 
 💎 Premium Heavy Diamonds
 
@@ -102,27 +102,27 @@ Cluster Interpretation:
 
 🌐 Streamlit Application
 
-🎯 Features
+**🎯 Features**
 
-1️⃣ Price Prediction
+**1️⃣ Price Prediction**
 
 Input diamond attributes
 
 Predict price in INR
 
-2️⃣ Market Segmentation
+**2️⃣ Market Segmentation**
 
 Predict cluster category
 
 Display meaningful segment name
 
-🚀 Deployment
+**🚀 Deployment**
 
 App deployed using Streamlit Cloud
 
 Large model files hosted via Google Drive integration
 
-📁 Project Structure
+**📁 Project Structure**
 ├── app.py
 ├── requirements.txt
 ├── best_model.pkl
@@ -131,7 +131,7 @@ Large model files hosted via Google Drive integration
 ├── diamond.csv
 └── README.md
 
-⚠️ Key Learning
+**⚠️ Key Learning**
 
 Understood importance of feature consistency in deployment
 
@@ -143,7 +143,7 @@ Dependency conflicts
 
 Cloud deployment errors
 
-🛠️ Tech Stack
+**🛠️ Tech Stack**
 
 Python
 
@@ -155,7 +155,7 @@ Streamlit
 
 Google Drive API (gdown)
 
-📌 Conclusion
+**📌 Conclusion**
 
 This project demonstrates an end-to-end data science workflow:
 
@@ -163,10 +163,10 @@ Data Cleaning → Feature Engineering → Model Building → Deployment
 
 It provides practical insights into pricing strategies and market segmentation in the diamond industry.
 
-🔗 Links
+**🔗 Links**
 
 🌐 Live App: https://diamond-price-prediction-3iev6spaevcvxwcjw6tbtu.streamlit.app/
 
-🙌 Author
+**🙌 Author**
 
 Naveen Kumar
