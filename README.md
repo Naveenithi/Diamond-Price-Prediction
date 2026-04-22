@@ -1,6 +1,6 @@
-💎 Diamond Dynamics: Price Prediction & Market Segmentation
+💎 **Diamond Dynamics: Price Prediction & Market Segmentation**
 
-📌 Project Overview
+📌 **Project Overview**
 
 This project focuses on analyzing the diamond market by building machine learning models to:
 
@@ -10,7 +10,7 @@ This project focuses on analyzing the diamond market by building machine learnin
 
 🌐 Deploy an interactive web application using Streamlit
 
-🎯 Objectives
+🎯 **Objectives**
 
 Build multiple regression models to predict diamond prices
 
@@ -20,13 +20,13 @@ Develop an interactive Streamlit app for real-time predictions
 
 Ensure proper data preprocessing and feature engineering
 
-📂 Dataset Information
+📂 **Dataset Information**
 
 📊 Total Records: 53,940
 
 📌 Features: 10 original + engineered features
 
-Key Features:
+**Key Features:**
 
 carat – Weight of the diamond
 
@@ -42,7 +42,7 @@ x, y, z – Dimensions
 
 price – Target variable (converted to INR)
 
-🧹 Data Preprocessing
+🧹 **Data Preprocessing**
 
 Handled missing and invalid values
 
