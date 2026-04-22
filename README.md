@@ -100,7 +100,7 @@ Optimal clusters selected using Elbow Method
 
 💎 Affordable Small Diamonds
 
-🌐 Streamlit Application
+**🌐 Streamlit Application**
 
 **🎯 Features**
 
