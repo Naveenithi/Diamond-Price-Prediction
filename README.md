@@ -55,14 +55,14 @@ Encoded categorical variables using ordinal encoding
 ⚙️ Feature Engineering
 
 Converted price from USD → INR (₹93 assumed rate)
+
 Created new features:
 
 volume = x * y * z
 
 dimension_ratio
-carat_category
 
-⚠️ Removed price_per_carat to avoid data leakage
+carat_category
 
 🤖 Model Building
 
