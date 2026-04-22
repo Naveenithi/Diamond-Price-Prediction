@@ -1,4 +1,4 @@
-💎 **Diamond Dynamics: Price Prediction & Market Segmentation**
+**💎 **Diamond Dynamics: Price Prediction & Market Segmentation****
 
 📌 **Project Overview**
 
