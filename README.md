@@ -73,13 +73,17 @@ Linear Regression
 Decision Tree
 
 Random Forest (Best Model)
+
 KNN
 
 📊 Evaluation Metrics:
 
 MAE
+
 MSE
+
 RMSE
+
 R² Score
 
 🧠 Clustering (Market Segmentation)
@@ -142,9 +146,13 @@ Cloud deployment errors
 🛠️ Tech Stack
 
 Python
+
 Pandas, NumPy
+
 Scikit-learn
+
 Streamlit
+
 Google Drive API (gdown)
 
 📌 Conclusion
