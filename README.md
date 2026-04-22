@@ -125,7 +125,7 @@ It provides practical insights into pricing strategies and market segmentation i
 
 🔗 Links
 
-🌐 Live App: [Add Streamlit link here](https://diamond-price-prediction-3iev6spaevcvxwcjw6tbtu.streamlit.app/)
+🌐 Live App: https://diamond-price-prediction-3iev6spaevcvxwcjw6tbtu.streamlit.app/
 
 🙌 Author
 
