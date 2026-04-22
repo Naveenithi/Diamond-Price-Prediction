@@ -123,12 +123,19 @@ App deployed using Streamlit Cloud
 Large model files hosted via Google Drive integration
 
 **📁 Project Structure**
+
 ├── app.py
+
 ├── requirements.txt
+
 ├── best_model.pkl
+
 ├── kmeans_model.pkl
+
 ├── scaler.pkl
+
 ├── diamond.csv
+
 └── README.md
 
 **⚠️ Key Learning**
